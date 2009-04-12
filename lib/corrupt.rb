@@ -25,13 +25,9 @@ module Corrupt
       # The router.
       case env['PATH_INFO']
       when /^\/$/
-        [200, {'Content-Type' => 'text/plain', 'Content-Length' => '7'}, 'corrupt']
+        Controllers::Main.new.index
       else
-        [
-          404,
-          { 'Content-Type' => 'text/plain', 'Content-Length' => '10' },
-          'Not found.'
-        ]
+        Controllers::Main.new.four_oh_four
       end
     end
   end # App
