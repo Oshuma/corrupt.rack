@@ -1,5 +1,6 @@
 module Corrupt
 
+  # This class is responsible for setting up the Corrupt environment.
   class System
     def initialize
       load_app_config

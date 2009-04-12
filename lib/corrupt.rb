@@ -13,12 +13,15 @@ end
 require 'corrupt/system'
 
 module Corrupt
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
 
+  # Setup the Corrupt environment.
   def self.boot!
     Corrupt::System.boot!
   end
 
+  # This is the main Rack app, which is ran through
+  #   run Corrupt::App
   # TODO: Move this to it's own file.
   class App
     def self.call(env)
@@ -27,6 +30,7 @@ module Corrupt
       when /^\/$/
         Controllers::Main.new.index
       else
+        # TODO: Exceptions controller, maybe?
         Controllers::Main.new.four_oh_four
       end
     end
