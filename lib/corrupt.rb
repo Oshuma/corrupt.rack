@@ -1,5 +1,6 @@
 $LOAD_PATH << File.dirname(__FILE__)
 
+# Dependencies.
 begin
   require 'dm-core'
   require 'sqlite3'
@@ -8,8 +9,15 @@ rescue LoadError => error
   $stderr.puts error
 end
 
+# Corrupt libraries.
+require 'corrupt/system'
+
 module Corrupt
   VERSION = '0.0.1'
+
+  def self.boot!
+    Corrupt::System.boot!
+  end
 
   # TODO: Move this to it's own file.
   class App
@@ -28,12 +36,6 @@ module Corrupt
     end
   end # App
 
-  # Setup the Corrupt environment.
-  def self.boot!
-    setup_app_config
-    setup_database
-  end
-
   private
 
   def self.app_dir
@@ -41,22 +43,11 @@ module Corrupt
   end
 
   def self.config_file
-    default_config = File.dirname(__FILE__) + '/../config/app_config.yml'
-    ENV['CORRUPT_CONFIG'] || default_config
+    ENV['CORRUPT_CONFIG'] || Corrupt.root + '/config/app_config.yml'
   end
 
   def self.root
     ENV['CORRUPT_ROOT'] || File.expand_path(File.dirname(__FILE__) + '/..')
   end
 
-  def self.setup_app_config
-    @config = YAML.load_file(config_file)
-  end
-
-  def self.setup_database
-    raise 'AppConfig not loaded' unless @config
-    database = File.join(Corrupt.root, @config['database'])
-    DataMapper.setup(:default, "sqlite3:///#{database}")
-    DataMapper.auto_migrate!
-  end
 end # Corrupt
