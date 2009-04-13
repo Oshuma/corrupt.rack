@@ -8,7 +8,7 @@ module Corrupt
       def index 
         template('articles/index.haml')
         # FIXME: This ends up as a DataMapper::Collection in the view.
-        @articles = Article.all
+        @articles = Article.all(:order => [:created_at.desc])
         return_response do |content|
           content.articles = @articles
         end

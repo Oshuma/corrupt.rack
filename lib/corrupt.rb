@@ -5,6 +5,7 @@ begin
   require 'dm-core'
   require 'dm-timestamps'
   require 'haml'
+  require 'maruku'
   require 'singleton'
   require 'sqlite3'
   require 'yaml'
@@ -20,7 +21,7 @@ require 'corrupt/system'
 require 'corrupt/template'
 
 module Corrupt
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
 
   # Setup the Corrupt environment.
   def self.boot!

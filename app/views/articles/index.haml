@@ -1,5 +1,26 @@
+%style{:type => 'text/css'}
+  \.article {
+  border-bottom: 1px solid #888;
+  margin: 1em;
+  margin-bottom: 1.5em;
+  }
+  \.article h3 {
+  margin: 0.5em auto;
+  }
+  \.article span.created-on {
+  border-left: 1px solid #888;
+  border-right: 1px solid #888;
+  font-style: italic;
+  font-size: 0.75em;
+  padding: 0 10px;
+  }
+  \.article p {
+  margin: 0.5em auto;
+  text-align: left;
+  }
+
 - articles.first.each do |article|
   .article
     %h3= article.title
-    %span== Created on: #{article.created_at}
-    %p=  article.content
+    %span.created-on== Posted on: #{article.created_at}
+    ~ article.content_html
