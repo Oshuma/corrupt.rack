@@ -31,6 +31,8 @@ module Corrupt
       case env['PATH_INFO']
       when /^\/$/
         Controllers::Main.new.index
+      when /^\/articles\/?$/
+        Controllers::Main.new.articles
       else
         # TODO: Exceptions controller, maybe?
         Controllers::Main.new.four_oh_four
@@ -42,6 +44,10 @@ module Corrupt
 
   def self.app_dir
     ENV['CORRUPT_APP'] || File.dirname(__FILE__) + '/../app'
+  end
+
+  def self.config
+    Corrupt::Config
   end
 
   def self.config_file
