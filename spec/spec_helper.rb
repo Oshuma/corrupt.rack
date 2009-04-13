@@ -7,6 +7,8 @@ ENV['CORRUPT_ENV'] = 'test'
 Corrupt.boot!
 
 Spec::Runner.configure do |config|
+  include Corrupt
+
   config.before(:all) do
     DataMapper.auto_migrate!
   end

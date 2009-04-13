@@ -22,6 +22,10 @@ module Corrupt
     Corrupt::System.boot!
   end
 
+  def self.to_version
+    "Corrupt v#{VERSION}"
+  end
+
   # This is the main Rack app, which is ran through
   #   run Corrupt::App
   # TODO: Move this to it's own file.
