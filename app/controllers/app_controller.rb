@@ -32,8 +32,14 @@ module Corrupt
       end
 
       # Set the template to be rendered.
-      def template(file = 'main/index.haml')
-        @template ||= Corrupt::Template.new(file)
+      def template(file = nil)
+        # TODO: DRY it, fucker.
+        @template ||= if file
+          Corrupt::Template.new(file)
+        else
+          Corrupt::Template.new('index.haml', :public => true)
+        end
+        @template
       end
     end # AppController
 

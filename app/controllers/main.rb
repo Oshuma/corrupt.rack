@@ -6,6 +6,7 @@ module Corrupt
       def index
         template('main/index.haml')
         return_response do |content|
+          content.title = 'Main Index'
           content.version = "#{Corrupt.config['name']} v#{Corrupt::VERSION}"
         end
       end

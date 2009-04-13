@@ -1,8 +1,17 @@
 module Corrupt
 
   class Template
-    def initialize(file)
-      @file = File.join(Corrupt.app_root, 'views', file)
+    # If <tt>options[:public]</tt> is passed, the file will be searched
+    # for in /public, else /app/views.
+    def initialize(file, options = {})
+      # TODO: DRY this.
+      if options[:public]
+        path = File.join(Corrupt.root, 'public')
+      else
+        path = File.join(Corrupt.app_root, 'views')
+      end
+      @file   = File.join(path, file)
+      @layout = File.join(Corrupt.app_root, 'views', 'layouts', 'application.haml')
       @variables = {}
     end
 
@@ -13,9 +22,13 @@ module Corrupt
     end
 
     # Renders the file with any variables and returns an HTML string.
+    # Wraps the file inside of the layout.
     def render
-      engine = Haml::Engine.new(File.read(@file))
-      engine.render(Object.new, @variables)
+      wrap = Haml::Engine.new(File.read(@layout))
+      wrap.render do
+        engine = Haml::Engine.new(File.read(@file))
+        engine.render(Object.new, @variables)
+      end
     end
   end # Template
 
