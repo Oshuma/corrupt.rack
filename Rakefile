@@ -1,4 +1,4 @@
-task :default => 'app:rackup'
+task :default => 'app:rack'
 
 task :environment do
   require File.dirname(__FILE__) + '/lib/corrupt'
@@ -6,8 +6,8 @@ task :environment do
 end
 
 namespace :app do
-  desc 'Run the app with rackup'
-  task :rackup do
+  desc 'Run the app with Rack'
+  task :rack do
     $stdout.puts 'Starting with rackup...'
     `rackup`
   end

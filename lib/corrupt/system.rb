@@ -21,7 +21,7 @@ module Corrupt
     private
 
     def load_app_config
-      @config = YAML.load_file(Corrupt.config_file)
+      Corrupt::Config.setup(Corrupt.config_file)
     end
 
     def load_controllers
@@ -39,8 +39,7 @@ module Corrupt
     end
 
     def setup_database
-      raise 'AppConfig not loaded' unless @config
-      database = File.join(Corrupt.root, @config['database'])
+      database = File.join(Corrupt.root, Corrupt::Config['database'])
       DataMapper.setup(:default, "sqlite3:///#{database}")
     end
 

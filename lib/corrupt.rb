@@ -3,6 +3,7 @@ $LOAD_PATH << File.dirname(__FILE__)
 # Dependencies.
 begin
   require 'dm-core'
+  require 'singleton'
   require 'sqlite3'
   require 'yaml'
 rescue LoadError => error
@@ -10,6 +11,7 @@ rescue LoadError => error
 end
 
 # Corrupt libraries.
+require 'corrupt/config'
 require 'corrupt/system'
 
 module Corrupt
@@ -44,6 +46,10 @@ module Corrupt
 
   def self.config_file
     ENV['CORRUPT_CONFIG'] || Corrupt.root + '/config/app_config.yml'
+  end
+
+  def self.env
+    ENV['CORRUPT_ENV'] || 'development'
   end
 
   def self.root
