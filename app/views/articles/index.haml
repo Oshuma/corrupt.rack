@@ -1,0 +1,5 @@
+- articles.first.each do |article|
+  .article
+    %h3= article.title
+    %span== Created on: #{article.created_at}
+    %p=  article.content

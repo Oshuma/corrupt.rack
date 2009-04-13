@@ -3,6 +3,8 @@ module Corrupt
 
     # Handles the home page and various others.
     class Main < AppController
+
+      # GET /
       def index
         template('main/index.haml')
         return_response do |content|
@@ -11,12 +13,10 @@ module Corrupt
         end
       end
 
-      # GET /articles
-      def articles
-        template('main/articles.haml')
-        return_response do |response|
-          response.articles = Article.all
-        end
+      # GET /code
+      def code
+        template('main/code.haml')
+        return_response
       end
 
     end # Main

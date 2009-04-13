@@ -1,0 +1,25 @@
+%style{:type => 'text/css'}
+  \.code-links {
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 0.5em;
+  padding: 1em;
+  text-align: center;
+  }
+  \.code-links a {
+  border-bottom: 2px dashed #888;
+  margin: 0 1em;
+  padding: 2px;
+  text-decoration: none;
+  }
+  \.code-links a:hover {
+  border-top: 2px dashed #888;
+  border-bottom: none;
+  }
+
+%h2 code
+
+.code-links
+  %a{:href => 'http://github.com/Oshuma', :title => 'Github'} Github
+  %a{:href => 'http://rubyforge.org/users/oshuma/', :title => 'Rubyforge'} Rubyforge
+  %a{:href => 'http://gitorious.org/users/Oshuma', :title => 'Gitorious'} Gitorious

@@ -3,6 +3,7 @@ $LOAD_PATH << File.dirname(__FILE__)
 # Dependencies.
 begin
   require 'dm-core'
+  require 'dm-timestamps'
   require 'haml'
   require 'singleton'
   require 'sqlite3'

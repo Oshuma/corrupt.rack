@@ -1,0 +1,49 @@
+* {
+  color: #333;
+}
+
+body {
+  background-color: #eee;
+  font-family: Arial, "MS Trebuchet", sans-serif;
+}
+
+h1 {
+  font-size: 5em;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-align: center;
+}
+
+h1 > a {
+  text-decoration: none;
+}
+
+h1 > a:hover {
+  border-bottom: 1px dashed #888;
+}
+
+p {
+  text-align: center;
+}
+
+p > a {
+  border-bottom: 1px dashed #888;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+  padding-bottom: 3px;
+  text-decoration: none;
+}
+
+p > a:hover {
+  border-bottom: 1px solid #888;
+  letter-spacing: 0.50em;
+}
+
+#github-badge {
+  margin: 2em auto;
+  text-align: left !important;
+  width: 250px;
+}
+
+#github-badge .repo_listing {
+}

@@ -26,7 +26,11 @@ module Corrupt
     end
 
     def load_controllers
+      app_controller = "#{Corrupt.app_root}/controllers/app_controller.rb"
       controllers = Dir["#{Corrupt.app_root}/controllers/*.rb"].sort
+      # Load AppController first...
+      require controllers.delete(app_controller)
+      # ...now the rest.
       controllers.each do |controller|
         require controller
       end

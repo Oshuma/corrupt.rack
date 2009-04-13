@@ -7,8 +7,8 @@ class Article
   property :title, String, :nullable => false
   property :content, Text, :nullable => false
 
-  # property :created_at, DateTime
-  # property :updated_at, DateTime
+  property :created_at, DateTime
+  property :updated_at, DateTime
 
   # property :created_on, Date
   # property :updated_on, Date
