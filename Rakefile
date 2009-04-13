@@ -1,16 +1,16 @@
-task :default => 'app:rack'
+task :default => 'run:rackup'
 
 task :environment do
   require File.dirname(__FILE__) + '/lib/corrupt'
   Corrupt.boot!
 end
 
-namespace :app do
-  desc 'Run the app with Rack'
-  task :rack do
-    $stdout.puts 'Starting with rackup...'
-    `rackup`
-  end
+FileList['tasks/**/*.rake'].each { |task| load task }
+
+desc 'Open a console with the library loaded'
+task :console do
+  lib_dir = File.join(File.dirname(__FILE__), 'lib')
+  sh "irb -I #{lib_dir} -r 'corrupt'"
 end
 
 namespace :db do
