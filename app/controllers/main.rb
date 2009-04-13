@@ -4,15 +4,18 @@ module Corrupt
     # Handles the home page and various others.
     class Main < AppController
       def index
-        self.content = "#{Corrupt.config['name']} v#{Corrupt::VERSION}"
-        return_response
+        template('main/index.haml')
+        return_response do |content|
+          content.version = "#{Corrupt.config['name']} v#{Corrupt::VERSION}"
+        end
       end
 
       # GET /articles
       def articles
-        @articles = Article.all
-        self.content = @articles.inspect
-        return_response
+        template('main/articles.haml')
+        return_response do |response|
+          response.articles = Article.all
+        end
       end
 
     end # Main

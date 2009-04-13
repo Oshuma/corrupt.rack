@@ -26,14 +26,14 @@ module Corrupt
     end
 
     def load_controllers
-      controllers = Dir["#{Corrupt.app_dir}/controllers/*.rb"].sort
+      controllers = Dir["#{Corrupt.app_root}/controllers/*.rb"].sort
       controllers.each do |controller|
         require controller
       end
     end
 
     def load_models
-      models = Dir["#{Corrupt.app_dir}/models/*.rb"].sort
+      models = Dir["#{Corrupt.app_root}/models/*.rb"].sort
       models.each do |model|
         require model
       end

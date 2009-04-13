@@ -3,6 +3,7 @@ $LOAD_PATH << File.dirname(__FILE__)
 # Dependencies.
 begin
   require 'dm-core'
+  require 'haml'
   require 'singleton'
   require 'sqlite3'
   require 'yaml'
@@ -15,6 +16,7 @@ require 'corrupt/app'
 require 'corrupt/config'
 require 'corrupt/router'
 require 'corrupt/system'
+require 'corrupt/template'
 
 module Corrupt
   VERSION = '0.0.2'
@@ -31,7 +33,7 @@ module Corrupt
 
   private
 
-  def self.app_dir
+  def self.app_root
     ENV['CORRUPT_APP'] || File.dirname(__FILE__) + '/../app'
   end
 

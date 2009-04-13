@@ -19,14 +19,21 @@ module Corrupt
       # Return the headers for the response.
       def headers
         { 'Content-Length' => content.size.to_s,
-          'Content-Type'   => 'text/plain' }
+          'Content-Type'   => 'text/html' }
       end
 
       # Return the full Rack response in this format:
       #   [status, headers, content]
       # An optional +status+ may be passed; defaults to 200.
       def return_response(status = 200)
+        yield template if block_given?
+        self.content = template.render
         [status, headers, content]
+      end
+
+      # Set the template to be rendered.
+      def template(file = 'main/index.haml')
+        @template ||= Corrupt::Template.new(file)
       end
     end # AppController
 

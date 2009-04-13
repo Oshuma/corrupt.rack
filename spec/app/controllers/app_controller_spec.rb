@@ -8,7 +8,6 @@ describe AppController do
   end
 
   it 'should return a default response' do
-    @controller.content = 'some content'
     @response = @controller.return_response
     @response.size.should == 3
   end
