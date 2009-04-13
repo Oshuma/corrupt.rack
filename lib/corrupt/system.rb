@@ -15,6 +15,7 @@ module Corrupt
     def boot!
       load_models
       load_controllers
+      prepare_router
       setup_database
     end
 
@@ -36,6 +37,10 @@ module Corrupt
       models.each do |model|
         require model
       end
+    end
+
+    def prepare_router
+      load File.join(Corrupt.root, 'config', 'routes.rb')
     end
 
     def setup_database

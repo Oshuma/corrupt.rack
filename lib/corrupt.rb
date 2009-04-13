@@ -11,7 +11,9 @@ rescue LoadError => error
 end
 
 # Corrupt libraries.
+require 'corrupt/app'
 require 'corrupt/config'
+require 'corrupt/router'
 require 'corrupt/system'
 
 module Corrupt
@@ -22,27 +24,10 @@ module Corrupt
     Corrupt::System.boot!
   end
 
+  # Output a version string.
   def self.to_version
     "Corrupt v#{VERSION}"
   end
-
-  # This is the main Rack app, which is ran through
-  #   run Corrupt::App
-  # TODO: Move this to it's own file.
-  class App
-    def self.call(env)
-      # The router.
-      case env['PATH_INFO']
-      when /^\/$/
-        Controllers::Main.new.index
-      when /^\/articles\/?$/
-        Controllers::Main.new.articles
-      else
-        # TODO: Exceptions controller, maybe?
-        Controllers::Main.new.four_oh_four
-      end
-    end
-  end # App
 
   private
 

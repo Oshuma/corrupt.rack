@@ -13,6 +13,17 @@ task :console do
   sh "irb -I #{lib_dir} -r 'corrupt'"
 end
 
+desc 'List the configured routes'
+task :routes => [ :environment ] do
+  width = 30
+  puts "| Routes for '#{Corrupt.env}' environment |"
+  Corrupt::Router.routes.each do |route|
+    print "#{route[0]}".ljust(width)
+    print "#{route[1].inspect}".rjust(width)
+    puts
+  end
+end
+
 namespace :db do
   desc 'Migrate the database (destructive)'
   task :migrate => [:environment] do
