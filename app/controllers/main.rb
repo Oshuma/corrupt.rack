@@ -15,11 +15,6 @@ module Corrupt
         return_response
       end
 
-      # Handles HTTP 404.
-      def four_oh_four
-        self.content = 'Not found.'
-        return_response(404)
-      end
     end # Main
 
   end # Controllers

@@ -17,6 +17,17 @@ module Corrupt
     def self.routes
       @@routes
     end
+
+    # Dispatch a request to a controller and action.
+    def self.dispatch(path)
+      response = @@routes.select { |route| route[0] == path }
+      if response.empty?
+        puts '404'
+        Controllers::Exceptions.new.four_oh_four
+      else
+        puts 'path found: ' + response.inspect
+      end
+    end
   end
 
 end # Corrupt

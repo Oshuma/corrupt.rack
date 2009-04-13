@@ -5,12 +5,10 @@ describe Router do
     @router = Router.new
   end
 
-  it 'should map a URL path to a controller/action' do
-    @router.map '/path', :controller => 'test', :action => 'path'
-  end
-
-  it 'should have at least one route' do
-    @router.map '/path', :controller => 'test', :action => 'path'
-    Router.routes.size.should == 1
+  it 'should store the configured routes' do
+    @router.map '/',      :controller => 'main',  :action => 'home'
+    @router.map '/path',  :controller => 'test',  :action => 'path'
+    @router.map '/other', :controller => 'other', :action => 'index'
+    Router.routes.size.should == 3
   end
 end

@@ -4,15 +4,14 @@ module Corrupt
   #   run Corrupt::App
   class App
     def self.call(env)
-      # The router.
+      # Router.dispatch(env['PATH_INFO'])
       case env['PATH_INFO']
       when /^\/$/
         Controllers::Main.new.index
       when /^\/articles\/?$/
         Controllers::Main.new.articles
       else
-        # TODO: Exceptions controller, maybe?
-        Controllers::Main.new.four_oh_four
+        Controllers::Exceptions.new.four_oh_four
       end
     end
   end # App
