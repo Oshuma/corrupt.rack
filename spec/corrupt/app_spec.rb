@@ -9,11 +9,6 @@ describe App do
     @response[2].should be_instance_of(String)
   end
 
-  it 'should find /articles' do
-    @response = get('/articles')
-    @response[0].should == 200
-  end
-
   it 'should return a 404 status' do
     @response = get('/not/a/real/path')
     @response[0].should == 404

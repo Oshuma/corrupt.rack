@@ -9,6 +9,8 @@ module Corrupt
     end
 
     # Maps incoming URLs to a controller and action.
+    # TODO: Maybe change the routes storage to a hash like:
+    #   @@routes[path]  # => options
     def map(path, options)
       @@routes << [path, options]
     end
@@ -20,12 +22,12 @@ module Corrupt
 
     # Dispatch a request to a controller and action.
     def self.dispatch(path)
-      response = @@routes.select { |route| route[0] == path }
-      if response.empty?
-        puts '404'
+      route = @@routes.select { |route| route[0] == path }.flatten
+      if route.empty?
         Controllers::Exceptions.new.four_oh_four
       else
-        puts 'path found: ' + response.inspect
+        response = route[1]  # 2nd element is the controller/action hash.
+        Controllers.const_get(response[:controller]).new.send(response[:action])
       end
     end
   end
