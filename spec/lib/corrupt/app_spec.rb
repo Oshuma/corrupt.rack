@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../lib_spec_helper')
 
 describe App do
   it 'should return a proper Rack response: [status, headers, content]' do

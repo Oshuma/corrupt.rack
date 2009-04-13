@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/lib_spec_helper')
 
 describe Corrupt do
   it 'should have a version string' do
