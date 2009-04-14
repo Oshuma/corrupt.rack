@@ -3,74 +3,7 @@
   %head
     %title= Corrupt.config['name']
 
-    %style{ :type => "text/css" }
-      * {
-      color: #333;
-      }
-      body {
-      background-color: #eee;
-      font-family: Arial, "MS Trebuchet", sans-serif;
-      }
-      h1 {
-      font-size: 5em;
-      letter-spacing: 0.1em;
-      margin: 0;
-      text-align: center;
-      }
-      h1 > a {
-      text-decoration: none;
-      }
-      h1 > a:hover {
-      border-bottom: 1px dashed #888;
-      }
-      h2 {
-      font-size: 2em;
-      text-align: center;
-      }
-      p {
-      line-height: 1.5em;
-      text-align: center;
-      }
-      p:first-letter {
-      border-bottom: 1px solid #888;
-      font-family: Times, serif;
-      font-size: 1.5em;
-      }
-      p > a {
-      border-bottom: 1px dashed #888;
-      font-weight: bold;
-      padding-bottom: 1px;
-      text-decoration: none;
-      }
-      p > a:hover {
-      border-bottom: 1px solid #888;
-      }
-      \#menu {
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-right: 1px solid #333;
-      font-size: 25px;
-      margin: 0.5em;
-      padding: 0.5em;
-      }
-      \#menu a {
-      display: block;
-      text-decoration: none;
-      }
-      \#menu a:hover {
-      border-bottom: 1px dashed #888;
-      }
-      \#github-badge {
-      margin: 2em auto;
-      text-align: left !important;
-      width: 250px;
-      }
-      \#github-badge .repo_listing {
-      }
-      \#content {
-      margin-top: 2em;
-      }
+    %link{:type => 'text/css', :rel => 'stylesheet', :href => '/stylesheets/application.css'}
 
   %body
     %a{ :href => "http://github.com/oshuma" }
