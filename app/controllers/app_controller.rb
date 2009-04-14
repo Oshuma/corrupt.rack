@@ -33,7 +33,7 @@ module Corrupt
 
       # Set the template to be rendered.
       def template(file = nil)
-        # TODO: DRY it, fucker.
+        # FIXME: Remove the :public flag when Rack::Static is finished.
         @template ||= if file
           Corrupt::Template.new(file)
         else
