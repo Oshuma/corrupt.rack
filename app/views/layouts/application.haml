@@ -7,14 +7,17 @@
 
   %body
     %a{ :href => "http://github.com/oshuma" }
-      %img{ :src => "http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png", :alt => "Fork me on GitHub", :style => "position: absolute; top: 0; right: 0; border: 0;" }
+      %img{ :id => 'github-ribbon', :src => "http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png", :alt => "Fork me on GitHub" }
 
-    %h1
-      %a{:href => '/'}= Corrupt.config['name']
+    #top-background
 
-    #menu
-      %a{:href => '/'} main
-      %a{:href => '/code'} code
+    #header
+      %h1
+        %a{:href => '/'}= Corrupt.config['name']
+
+        #menu
+          %a{:href => '/'} main
+          %a{:href => '/code'} code
 
     #content
       = yield
