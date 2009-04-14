@@ -21,7 +21,7 @@ require 'corrupt/system'
 require 'corrupt/template'
 
 module Corrupt
-  VERSION = '0.1.1'
+  VERSION = '0.2.0'
 
   # Setup the Corrupt environment.
   def self.boot!
