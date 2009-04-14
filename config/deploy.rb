@@ -26,7 +26,7 @@ end
 namespace :deploy do
   desc 'Restart the application'
   task :restart do
-    puts 'Restarting app'
+    run "touch #{latest_release}/tmp/restart.txt"
   end
 
   desc 'Migrate the database'

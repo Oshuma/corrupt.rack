@@ -12,13 +12,13 @@ namespace :run do
   end
 
   desc 'Start the server with Mongrel handler'
-  task :mongrel => :setup do
+  task :mongrel => [ :environment, :setup ] do
     puts 'Starting with Mongrel handler...'
     Rack::Handler::Mongrel.run @application, @options
   end
 
   desc 'Start the server with Thin handler'
-  task :thin => :setup do
+  task :thin => [ :environment, :setup ] do
     puts 'Starting with Thin handler...'
     Rack::Handler::Thin.run @application, @options
   end

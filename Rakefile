@@ -1,6 +1,7 @@
 task :default => 'run:rackup'
 
 task :environment do
+  ENV['CORRUPT_ENV'] ||= 'development'
   require File.dirname(__FILE__) + '/lib/corrupt'
   Corrupt.boot!
 end
