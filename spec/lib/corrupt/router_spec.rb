@@ -6,7 +6,7 @@ describe Router do
   end
 
   it 'should store the configured routes' do
-    @router.map '/',      :controller => 'Main',  :action => 'index'
+    @router.map '/', :controller => 'Main',  :action => 'index'
     Router.routes.size.should == 1
   end
 end
