@@ -1,3 +1,4 @@
+*.gem
 config/app_config.yml
 coverage/
 db/*.sqlite3
