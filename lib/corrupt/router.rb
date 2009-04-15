@@ -23,11 +23,12 @@ module Corrupt
     # Dispatch a request to a controller and action.
     def self.dispatch(path)
       route = @@routes.select { |route| route[0] == path }.flatten
+      # FIXME: This could probably be handled a little better.
       if route.empty?
-        Controllers::Exceptions.new.four_oh_four
+        Exceptions.new.four_oh_four
       else
         response = route[1]  # 2nd element is the controller/action hash.
-        Controllers.const_get(response[:controller]).new.send(response[:action])
+        Corrupt::Controller.const_get(response[:controller]).new.send(response[:action])
       end
     end
   end

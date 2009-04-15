@@ -1,5 +1,5 @@
 defaults: &defaults
-  name: Corrupt
+  name: CorruptApp
   database: db/development.sqlite3
 
 development:

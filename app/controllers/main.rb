@@ -5,15 +5,9 @@ class Main < AppController
   def index
     template('main/index.haml')
     return_response do |content|
+      # This sets 'title' in the template.
       content.title = 'Main Index'
-      content.version = "#{Corrupt.config['name']} v#{Corrupt::VERSION}"
     end
-  end
-
-  # GET /code
-  def code
-    template('main/code.haml')
-    return_response
   end
 
 end # Main

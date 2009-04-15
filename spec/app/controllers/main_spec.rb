@@ -1,7 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + '/../app_spec_helper')
 
-include Controllers
-
 describe Main do
   before(:each) do
     @controller = Main.new

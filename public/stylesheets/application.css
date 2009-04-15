@@ -19,7 +19,7 @@ body {
 #header {
   position: fixed;
   top: 0;
-  left: 150px;
+  left: 135px;
   z-index: 100;
 }
 
@@ -88,14 +88,6 @@ p > a:hover {
 
 #menu a:hover {
   border-bottom: 1px dashed #888;
-}
-
-#github-ribbon {
-  position: fixed;
-  top: 0;
-  right: 0;
-  border: 0;
-  z-index: 100;
 }
 
 #content {

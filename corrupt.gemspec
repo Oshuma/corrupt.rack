@@ -19,15 +19,18 @@ Gem::Specification.new do |s|
   # s.executables = ['corrupt']
   s.require_paths = ['lib']
   s.files = FileList[
-    'config.ru',
-    'Capfile',
     'Rakefile',
     'README',
+    'app/**/*.rb',
+    'config.ru',
     'config/app_config.yml.example',
-    'config/deploy.rb',
     'config/routes.rb',
     'lib/**/*.rb',
+    'public/**/*',
+    'spec/app/**/*.rb',
     'spec/lib/**/*.rb',
+    'spec/rcov.opts',
+    'spec/spec.opts',
     'spec/spec_helper.rb',
     'tasks/**/*.rake',
   ]

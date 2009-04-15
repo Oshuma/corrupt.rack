@@ -6,9 +6,6 @@
     %link{:type => 'text/css', :rel => 'stylesheet', :href => '/stylesheets/application.css'}
 
   %body
-    %a{ :href => "http://github.com/oshuma" }
-      %img{ :id => 'github-ribbon', :src => "http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png", :alt => "Fork me on GitHub" }
-
     #top-background
 
     #header
@@ -17,7 +14,6 @@
 
         #menu
           %a{:href => '/'} main
-          %a{:href => '/code'} code
 
     #content
       = yield
@@ -25,14 +21,3 @@
     #footer
       Powered by
       %a{:href => 'http://github.com/Oshuma/corrupt.rack/', :title => Corrupt.to_version}= Corrupt.to_version
-
-    %script{:type => 'text/javascript'}
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-
-    %script{:type => 'text/javascript'}
-      try {
-      var pageTracker = _gat._getTracker("UA-7494408-1");
-      pageTracker._trackPageview();
-      } catch(err) {}
-
