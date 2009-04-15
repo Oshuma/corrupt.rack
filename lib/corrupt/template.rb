@@ -1,17 +1,15 @@
 module Corrupt
 
   class Template
-    # If <tt>options[:public]</tt> is passed, the file will be searched
-    # for in /public, else /app/views.
-    #
-    # FIXME: Remove the /public check when Rack::Static is finished.
-    def initialize(file, options = {})
-      if options[:public]
-        path = File.join(Corrupt.root, 'public')
+    # TODO: Maybe parameterize the layout option?
+    def initialize(file)
+      # FIXME: This is rather ugly; maybe pass off to Rack::Static?
+      if file
+        view_path = File.join(Corrupt.app_root, 'views')
+        @file = File.join(view_path, file)
       else
-        path = File.join(Corrupt.app_root, 'views')
+        @file = File.join(Corrupt.root, 'public', 'index.haml')
       end
-      @file   = File.join(path, file)
       @layout = File.join(Corrupt.app_root, 'views', 'layouts', 'application.haml')
       @variables = {}
     end

@@ -33,13 +33,7 @@ module Corrupt
 
       # Set the template to be rendered.
       def template(file = nil)
-        # FIXME: Remove the :public flag when Rack::Static is finished.
-        @template ||= if file
-          Corrupt::Template.new(file)
-        else
-          Corrupt::Template.new('index.haml', :public => true)
-        end
-        @template
+        @template ||= Corrupt::Template.new(file)
       end
     end # AppController
 
