@@ -1,3 +1,6 @@
+desc 'Start the server with rackup'
+task :run => 'run:rackup'
+
 namespace :run do
   task :setup => [ :environment ] do
     require 'rack'

@@ -1,4 +1,4 @@
-task :default => 'run:rackup'
+task :default => 'spec'
 
 task :environment do
   ENV['CORRUPT_ENV'] ||= 'development'

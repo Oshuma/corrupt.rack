@@ -3,7 +3,7 @@ module Corrupt
   class Template
     # TODO: Maybe parameterize the layout option?
     def initialize(file)
-      # FIXME: This is rather ugly; maybe pass off to Rack::Static?
+      # FIXME: This is rather ugly; maybe raise a 'view not found' exception?
       if file
         view_path = File.join(Corrupt.app_root, 'views')
         @file = File.join(view_path, file)
