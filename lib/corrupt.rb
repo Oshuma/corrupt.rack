@@ -14,12 +14,15 @@ rescue LoadError => error
   $stderr.puts error
 end
 
-# Corrupt libraries.
+# Corrupt core libraries.
 require 'corrupt/app'
 require 'corrupt/config'
 require 'corrupt/router'
 require 'corrupt/system'
 require 'corrupt/template'
+
+# Corrupt framework libraries.
+require 'corrupt/framework/controller'
 
 module Corrupt
   VERSION = '0.2.0'
