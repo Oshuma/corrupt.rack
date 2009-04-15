@@ -5,6 +5,7 @@ begin
   require 'dm-core'
   require 'dm-timestamps'
   require 'haml'
+  require 'logger'
   require 'maruku'
   require 'singleton'
   require 'sqlite3'
@@ -49,6 +50,12 @@ module Corrupt
 
   def self.env
     ENV['CORRUPT_ENV'] || 'development'
+  end
+
+  def self.log
+    @log ||= Logger.new("#{Corrupt.root}/log/#{Corrupt.env}.log")
+    @log.level = (Corrupt.env == 'production' ? Logger::WARN : Logger::DEBUG)
+    @log
   end
 
   def self.root
