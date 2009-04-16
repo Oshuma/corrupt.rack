@@ -4,9 +4,11 @@ require 'optparse'
 
 begin
   require 'corrupt'
+  require 'corrupt/client'
 rescue LoadError
   require 'rubygems'
   require 'corrupt'
+  require 'corrupt/client'
 end
 
 Corrupt::Client.run
