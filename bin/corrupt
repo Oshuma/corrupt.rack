@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+begin
+  require 'corrupt'
+rescue LoadError
+  require 'rubygems'
+  require 'corrupt'
+end
+
+Corrupt::Client.run

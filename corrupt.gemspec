@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.rubyforge_project = 'corrupt'
   s.rubygems_version = '1.3.1'
 
-  # s.bindir = 'bin'
-  # s.executables = ['corrupt']
+  s.bindir = 'bin'
+  s.executables = ['corrupt']
   s.require_paths = ['lib']
   s.files = FileList[
     'Rakefile',

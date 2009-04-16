@@ -12,6 +12,17 @@ namespace :gem do
     sh "rm -f #{ROOT_DIR}/*.gem"
   end
 
+  desc 'Clean, rebuild and install the gem'
+  task :install => [ :clean, :build ] do
+    gem = FileList["#{ROOT_DIR}/*.gem"].first
+    sudo = RUBY_PLATFORM !~ /win32/ ? "sudo" : ""
+    begin
+    sh "#{sudo} gem uninstall corrupt"
+    rescue
+    end
+    sh "#{sudo} gem install #{gem}"
+  end
+
   desc 'Clean and rebuild the gem'
   task :rebuild => [ :clean, :build ]
 end
