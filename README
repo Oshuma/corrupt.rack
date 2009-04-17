@@ -6,6 +6,14 @@ So many buzz-words, it could kill a baby seal.
 
 == Getting Started
 
+If you haven't already:
+
+  # From Rubyforge
+  $ [sudo] gem install corrupt
+
+  # From Github
+  $ [sudo] gem install Oshuma-corrupt --source http://gems.github.com/
+
 This will generate a new application:
 
   $ corrupt -n /path/to/kickass_app
@@ -19,4 +27,3 @@ Then just copy and edit the example app_config.yml:
 Now start the server (through Rack):
 
   $ rake run:rackup
-
