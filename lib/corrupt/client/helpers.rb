@@ -13,5 +13,9 @@ module Corrupt
       opts[:stream].send(opts[:method], string)
     end
 
+    def take_action!
+      Corrupt::Generators::App.new(@options[:path]) if @options[:path]
+    end
+
   end # ClientHelpers
 end # Corrupt

@@ -1,4 +1,4 @@
-$LOAD_PATH << File.dirname(__FILE__)
+$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 
 # Dependencies.
 begin
@@ -20,6 +20,9 @@ require 'corrupt/config'
 require 'corrupt/router'
 require 'corrupt/system'
 require 'corrupt/template'
+
+# Corrupt generators.
+require 'corrupt/generators'
 
 # Corrupt framework libraries.
 require 'corrupt/framework/controller'

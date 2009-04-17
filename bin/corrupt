@@ -1,14 +1,10 @@
 #!/usr/bin/env ruby
 
-require 'optparse'
+$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/../lib')
 
-begin
-  require 'corrupt'
-  require 'corrupt/client'
-rescue LoadError
-  require 'rubygems'
-  require 'corrupt'
-  require 'corrupt/client'
-end
+require 'rubygems'
+require 'optparse'
+require 'corrupt'
+require 'corrupt/client'
 
 Corrupt::Client.run

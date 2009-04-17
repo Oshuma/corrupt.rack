@@ -35,6 +35,7 @@ module Corrupt
       begin
         @argv << '--help' if @argv.empty?
         input.parse!(@argv)
+        take_action!
       rescue OptionParser::InvalidOption => error
         error("#{error}\nTry passing '--help'")
       rescue OptionParser::MissingArgument => error
