@@ -1,3 +1,4 @@
+.DS_Store
 *.gem
 config/app_config.yml
 coverage/
