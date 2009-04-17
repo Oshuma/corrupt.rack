@@ -1,6 +1,6 @@
 module Corrupt
   module Generators
-    autoload :Fileutils, 'fileutils'
+    # autoload :Fileutils, 'fileutils'
 
     class App
 
@@ -17,6 +17,7 @@ module Corrupt
         'db',
         'log',
         'public',
+        'public/images',
         'public/javascripts',
         'public/stylesheets',
         'spec',
@@ -41,6 +42,7 @@ module Corrupt
         'app/views/main/index.haml',
         'config/app_config.yml.example',
         'config/routes.rb',
+        'public/images/ruby-powered.png',
         'public/javascripts/application.js',
         'public/stylesheets/application.css',
         'public/favicon.ico',
@@ -60,7 +62,7 @@ module Corrupt
       ]
 
       def initialize(path)
-        @path = path
+        @path = File.expand_path(path)
         setup_app!
       end
 
@@ -80,10 +82,12 @@ module Corrupt
 
       def copy_files
         FILES.each do |file|
-          Dir.chdir(Corrupt.root) do |corrupt_root|
+          base_file = File.expand_path(File.join(Corrupt.root, file))
+          Dir.chdir(@path) do |app_root|
             base_path = File.dirname(file)
-            destination = File.join(@path, base_path)
-            FileUtils.cp_r(file, destination)
+            destination = File.join(app_root, file)
+            copy_command = "cp #{base_file} #{destination}"
+            %x/#{copy_command}/
           end
         end
       end

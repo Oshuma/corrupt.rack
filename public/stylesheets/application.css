@@ -1,3 +1,5 @@
+/* Corrupt default styles. */
+
 * {
   color: #333;
 }
@@ -97,5 +99,5 @@ p > a:hover {
 #footer {
   font-size: 0.75em;
   margin: 0 auto;
-  width: 150px;
+  text-align: center;
 }

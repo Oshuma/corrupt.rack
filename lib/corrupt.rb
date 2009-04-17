@@ -28,7 +28,7 @@ require 'corrupt/generators'
 require 'corrupt/framework/controller'
 
 module Corrupt
-  VERSION = '0.2.0'
+  VERSION = '0.3.4'
 
   # Setup the Corrupt environment.
   def self.boot!
@@ -43,7 +43,7 @@ module Corrupt
   private
 
   def self.app_root
-    ENV['CORRUPT_APP'] || File.dirname(__FILE__) + '/../app'
+    ENV['CORRUPT_APP'] || File.join(Dir.pwd, 'app')
   end
 
   def self.config
@@ -51,7 +51,7 @@ module Corrupt
   end
 
   def self.config_file
-    ENV['CORRUPT_CONFIG'] || Corrupt.root + '/config/app_config.yml'
+    ENV['CORRUPT_CONFIG'] || Corrupt.app_root + '/../config/app_config.yml'
   end
 
   def self.env
@@ -59,7 +59,7 @@ module Corrupt
   end
 
   def self.log
-    @log ||= Logger.new("#{Corrupt.root}/log/#{Corrupt.env}.log")
+    @log ||= Logger.new("#{Corrupt.app_root}/../log/#{Corrupt.env}.log")
     @log.level = (Corrupt.env == 'production' ? Logger::WARN : Logger::DEBUG)
     @log
   end

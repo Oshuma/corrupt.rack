@@ -1,3 +1,22 @@
+= Corrupt
+
 Bare-bones Rack based MVC framework.
 
 So many buzz-words, it could kill a baby seal.
+
+== Getting Started
+
+This will generate a new application:
+
+  $ corrupt -n /path/to/kickass_app
+  $ cd /path/to/kickass_app
+
+Then just copy and edit the example app_config.yml:
+
+  $ cp config/app_config.yml.example config/app_config.yml
+  $ $EDITOR config/app_config.yml
+
+Now start the server (through Rack):
+
+  $ rake run:rackup
+

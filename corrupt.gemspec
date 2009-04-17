@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = 'No nonsense Rack-based framework.'
 
   s.rubyforge_project = 'corrupt'
-  s.rubygems_version = '1.3.1'
+  s.rubygems_version >= '1.3.1'
 
   s.bindir = 'bin'
   s.executables = ['corrupt']
@@ -22,11 +22,16 @@ Gem::Specification.new do |s|
     'Rakefile',
     'README',
     'app/**/*.rb',
+    'app/**/*.haml',
     'config.ru',
     'config/app_config.yml.example',
     'config/routes.rb',
     'lib/**/*.rb',
-    'public/**/*',
+    'public/images/**/*',
+    'public/javascripts/application.js',
+    'public/stylesheets/application.css',
+    'public/favicon.ico',
+    'public/index.haml',
     'spec/app/**/*.rb',
     'spec/lib/**/*.rb',
     'spec/rcov.opts',

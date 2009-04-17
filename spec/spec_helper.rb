@@ -1,7 +1,12 @@
 require 'rubygems'
 require 'spec'
 
-require File.expand_path(File.dirname(__FILE__) + '/../lib/corrupt')
+begin
+  require 'corrupt'
+rescue LoadError
+  # TODO: Might move this to /vendor or some shit.
+  require File.expand_path(File.dirname(__FILE__) + '/../lib/corrupt')
+end
 
 ENV['CORRUPT_ENV'] = 'test'
 Corrupt.boot!

@@ -14,10 +14,17 @@
 
         #menu
           %a{:href => '/'} main
+          %p
+          %a{:href => 'http://www.ruby-lang.org/', :title => 'Ruby Powered'}
+            %img{:src => '/images/ruby-powered.png', :alt => 'Ruby Powered'}
 
     #content
       = yield
 
     #footer
-      Powered by
-      %a{:href => 'http://github.com/Oshuma/corrupt.rack/', :title => Corrupt.to_version}= Corrupt.to_version
+      Your
+      %a{:href => '#', :onclick => '; document.getElementById("details").style.display = "block"; return false;'}Application
+      Footer
+
+      %div{:style => 'display: none;', :id => 'details'}
+        The application template is located here: <code>/app/views/layouts/application.haml</code>
