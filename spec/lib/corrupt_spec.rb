@@ -12,4 +12,8 @@ describe Corrupt do
   it 'should have a configuration accessor' do
     Corrupt.config.should_not be_nil
   end
+
+  it 'should have a logger' do
+    Corrupt.log.should_not be_nil
+  end
 end

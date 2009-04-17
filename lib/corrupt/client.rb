@@ -1,6 +1,5 @@
-require 'corrupt/client/helpers'
-
 module Corrupt
+  autoload :ClientHelpers, 'corrupt/client/helpers'
 
   class Client
     include ClientHelpers
