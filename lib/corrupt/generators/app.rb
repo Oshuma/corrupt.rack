@@ -27,18 +27,36 @@ module Corrupt
         'tmp',
       ]
 
-      # An array of files to copy for a new application.
-      # TODO: This will get ugly.  Maybe move to a Manifest.txt?
+      # A list of files to copy for a new application.
       FILES = [
-        "#{Corrupt.root}/config.ru",
-        "#{Corrupt.root}/corrupt.gemspec",
-        "#{Corrupt.root}/Rakefile",
-        "#{Corrupt.root}/README",
-        "#{Corrupt.root}/app/**/*",
-        "#{Corrupt.root}/config/app_config.yml.example",
-        "#{Corrupt.root}/config/routes.rb",
-        "#{Corrupt.root}/public/**/*",
-        "#{Corrupt.root}/spec/**/*",
+        'config.ru',
+        'Rakefile',
+        'README',
+        'app/controllers/app_controller.rb',
+        'app/controllers/exceptions.rb',
+        'app/controllers/main.rb',
+        'app/models/page.rb',
+        'app/views/exceptions/404.haml',
+        'app/views/layouts/application.haml',
+        'app/views/main/index.haml',
+        'config/app_config.yml.example',
+        'config/routes.rb',
+        'public/javascripts/application.js',
+        'public/stylesheets/application.css',
+        'public/favicon.ico',
+        'public/index.haml',
+        'spec/app/controllers/app_controller_spec.rb',
+        'spec/app/controllers/main_spec.rb',
+        'spec/app/models/page_spec.rb',
+        'spec/app/app_spec_helper.rb',
+        'spec/rcov.opts',
+        'spec/spec.opts',
+        'spec/spec_helper.rb',
+        'tasks/app.rake',
+        'tasks/gem.rake',
+        'tasks/notes.rake',
+        'tasks/spec.rake',
+        'tasks/util.rake',
       ]
 
       def initialize(path)
@@ -61,6 +79,13 @@ module Corrupt
       end
 
       def copy_files
+        FILES.each do |file|
+          Dir.chdir(Corrupt.root) do |corrupt_root|
+            base_path = File.dirname(file)
+            destination = File.join(@path, base_path)
+            FileUtils.cp_r(file, destination)
+          end
+        end
       end
 
     end # App

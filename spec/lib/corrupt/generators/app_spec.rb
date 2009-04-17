@@ -5,7 +5,7 @@ require 'fileutils'
 describe Generators::App do
   before(:each) do
     @path = '/tmp/test_corrupt_app'
-    FileUtils.rm_f(@path) if File.exists?(@path)
+    FileUtils.rm_r(@path) if File.exists?(@path)
   end
 
   it 'should create the new directory' do
