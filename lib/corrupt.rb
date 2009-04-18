@@ -41,6 +41,7 @@ module Corrupt
   private
 
   def self.app_root
+    # FIXME: This is most certainly wrong.  Dir.pwd should probably not be used here.
     ENV['CORRUPT_APP'] || File.join(Dir.pwd, 'app')
   end
 
