@@ -4,7 +4,12 @@ Bare-bones Rack based MVC framework.
 
 So many buzz-words, it could kill a baby seal.
 
-== Getting Started
+=== Code
+
+* Github: http://github.com/Oshuma/corrupt.rack
+* Rubyforge: http://rubyforge.org/projects/corrupt
+
+=== Getting Started
 
 If you haven't already:
 

@@ -1,6 +1,7 @@
 module Corrupt
   autoload :ClientHelpers, 'corrupt/client/helpers'
 
+  # The Corrupt command-line Client.
   class Client
     include ClientHelpers
 
@@ -9,10 +10,12 @@ module Corrupt
       @options = {}
     end
 
+    # Class wrapper to the instance method Corrupt::Client#run.
     def self.run
       new.run
     end
 
+    # Handles ARGV input from the client.
     def run
       input = OptionParser.new do |opts|
         opts.banner = "Usage: #{File.basename($0)} [options]"

@@ -3,6 +3,10 @@ module Corrupt
   # Handles URL dispatching for the application.
   # Routes are stored in a class variable, accessible by Router.routes.
   class Router
+    # The Router is normally used like this:
+    #   Corrupt::Router.new do |route|
+    #     route.map '/path', :controller => 'Kickass', :action => 'take_names'
+    #   end
     def initialize(&block)
       @@routes = []
       yield self if block_given?

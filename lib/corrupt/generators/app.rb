@@ -1,7 +1,7 @@
 module Corrupt
   module Generators
-    # autoload :Fileutils, 'fileutils'
 
+    # Generator to create a new Corrupt application.
     class App
 
       # A list of directories to create when making a new application.

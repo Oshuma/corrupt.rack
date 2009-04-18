@@ -3,10 +3,8 @@ $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 # Dependencies.
 begin
   require 'dm-core'
-  require 'dm-timestamps'
   require 'haml'
   require 'logger'
-  require 'maruku'  # TODO: Might get removed.
   require 'singleton'
   require 'sqlite3'
   require 'yaml'
@@ -30,12 +28,12 @@ require 'corrupt/framework/controller'
 module Corrupt
   VERSION = '0.3.5'
 
-  # Setup the Corrupt environment.
+  # Setup the Corrupt environment.  This just calls Corrupt::System.boot!
   def self.boot!
     Corrupt::System.boot!
   end
 
-  # Output a version string.
+  # Output the Corrupt version string.
   def self.to_version
     "Corrupt v#{VERSION}"
   end

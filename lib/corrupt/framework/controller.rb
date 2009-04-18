@@ -24,13 +24,15 @@ module Corrupt
       # Return the full Rack response in this format:
       #   [status, headers, content]
       # An optional +status+ may be passed; defaults to 200.
+      #
+      # An optional block may be passed, which will yield a Corrupt::Template object.
       def return_response(status = 200)
         yield template if block_given?
         self.content = template.render
         [status, headers, content]
       end
 
-      # Set the template to be rendered.
+      # Set the template file to be rendered.
       def template(file = nil)
         @template ||= Corrupt::Template.new(file)
       end

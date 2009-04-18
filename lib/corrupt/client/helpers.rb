@@ -1,4 +1,5 @@
 module Corrupt
+  # A few helpful methods, mainly used in the command-line Client.
   module ClientHelpers
 
     # Output an error message to +stream+ (defaults to $stderr).
@@ -13,6 +14,8 @@ module Corrupt
       opts[:stream].send(opts[:method], string)
     end
 
+    # After Corrupt::Client#run has setup <tt>@options</tt>, this method
+    # determines what action to take.
     def take_action!
       Corrupt::Generators::App.new(@options[:path]) if @options[:path]
     end
