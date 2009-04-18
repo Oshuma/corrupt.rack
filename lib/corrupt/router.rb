@@ -24,9 +24,9 @@ module Corrupt
       @@routes
     end
 
-    # Dispatch a request to a controller and action.
+    # Dispatch an incoming request +path+ to a controller and action.
     def self.dispatch(path)
-      route = @@routes.select { |route| route[0] == path }.flatten
+      route = route_for(path)
       # FIXME: This could probably be handled a little better.
       if route.empty?
         Exceptions.new.four_oh_four
@@ -35,6 +35,16 @@ module Corrupt
         Corrupt::Controller.const_get(response[:controller]).new.send(response[:action])
       end
     end
-  end
+
+    private
+
+    # +path+ is the incoming URL path.
+    def self.route_for(path)
+      @@routes.select do |route|
+        path.gsub!(/\/$/, '')  # Trim the trailing '/'
+        route[0] == path
+      end.flatten
+    end
+  end # Router
 
 end # Corrupt

@@ -7,6 +7,13 @@ describe Router do
 
   it 'should store the configured routes' do
     @router.map '/', :controller => 'Main',  :action => 'index'
-    Router.routes.size.should == 1
+    @router.map '/kickass', :controller => 'Kickass',  :action => 'take_names'
+    Router.routes.size.should == 2
+  end
+
+  it 'should respond to either /main or /main/' do
+    @router.map '/main', :controller => 'Main', :action => 'index'
+    get('/main')[0].should == 200
+    get('/main/')[0].should == 200
   end
 end
