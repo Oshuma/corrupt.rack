@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.rdoc_options << '--title' << 'Corrupt API' << '--main' << 'README' << '--inline-source' << '--line-numbers'
 
   s.rubyforge_project = 'corrupt'
-  s.rubygems_version >= '1.3.1'
+  s.rubygems_version = '1.3.1'
 
   s.bindir = 'bin'
   s.executables = ['corrupt']
@@ -45,6 +45,19 @@ Gem::Specification.new do |s|
     'tasks/**/*.rake',
   ]
 
-  s.add_dependency('dm-core', '>= 0.9.11')
-  s.add_dependency('haml', '>= 2.0.9')
+  if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
+    s.specification_version = 2
+
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<dm-core>, [">= 0.9.11"])
+      s.add_runtime_dependency(%q<haml>, [">= 2.0.9"])
+    else
+      s.add_dependency(%q<dm-core>, [">= 0.9.11"])
+      s.add_dependency(%q<haml>, [">= 2.0.9"])
+    end
+  else
+    s.add_dependency(%q<dm-core>, [">= 0.9.11"])
+    s.add_dependency(%q<haml>, [">= 2.0.9"])
+  end
 end
