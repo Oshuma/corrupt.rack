@@ -4,7 +4,7 @@ require 'rake'
 
 Gem::Specification.new do |s|
   s.name = 'corrupt'
-  s.version = '0.3.5'
+  s.version = '0.3.6'
   s.authors = ['Dale Campbell']
   s.email = ['dale@save-state.net']
   s.homepage = 'http://github.com/Oshuma/corrupt.rack/'
