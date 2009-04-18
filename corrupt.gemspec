@@ -45,7 +45,6 @@ Gem::Specification.new do |s|
     'tasks/**/*.rake',
   ]
 
-  s.requirements << 'Haml and DataMapper, yo.'
-  s.add_dependency('haml', '>= 2.0.9')
   s.add_dependency('dm-core', '>= 0.9.11')
+  s.add_dependency('haml', '>= 2.0.9')
 end
