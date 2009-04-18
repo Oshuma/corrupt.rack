@@ -1,6 +1,5 @@
-require File.dirname(__FILE__) + '/lib/corrupt'
-
-require 'rake'
+# require File.dirname(__FILE__) + '/lib/corrupt'
+# require 'rake'
 
 Gem::Specification.new do |s|
   s.name = 'corrupt'
@@ -23,27 +22,27 @@ Gem::Specification.new do |s|
   s.executables = ['corrupt']
   s.default_executable = 'corrupt'
   s.require_paths = ['lib']
-  s.files = FileList[
-    'Rakefile',
-    'README',
-    'app/**/*.rb',
-    'app/**/*.haml',
-    'config.ru',
-    'config/app_config.yml.example',
-    'config/routes.rb',
-    'lib/**/*.rb',
-    'public/images/**/*',
-    'public/javascripts/application.js',
-    'public/stylesheets/application.css',
-    'public/favicon.ico',
-    'public/index.haml',
-    'spec/app/**/*.rb',
-    'spec/lib/**/*.rb',
-    'spec/rcov.opts',
-    'spec/spec.opts',
-    'spec/spec_helper.rb',
-    'tasks/**/*.rake',
-  ]
+  s.files = [
+    Dir['Rakefile'],
+    Dir['README'],
+    Dir['app/**/*.rb'],
+    Dir['app/**/*.haml'],
+    Dir['config.ru'],
+    Dir['config/app_config.yml.example'],
+    Dir['config/routes.rb'],
+    Dir['lib/**/*.rb'],
+    Dir['public/images/**/*'],
+    Dir['public/javascripts/application.js'],
+    Dir['public/stylesheets/application.css'],
+    Dir['public/favicon.ico'],
+    Dir['public/index.haml'],
+    Dir['spec/app/**/*.rb'],
+    Dir['spec/lib/**/*.rb'],
+    Dir['spec/rcov.opts'],
+    Dir['spec/spec.opts'],
+    Dir['spec/spec_helper.rb'],
+    Dir['tasks/**/*.rake'],
+  ].flatten
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
