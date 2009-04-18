@@ -6,7 +6,7 @@ begin
   require 'dm-timestamps'
   require 'haml'
   require 'logger'
-  require 'maruku'
+  require 'maruku'  # TODO: Might get removed.
   require 'singleton'
   require 'sqlite3'
   require 'yaml'
@@ -28,7 +28,7 @@ require 'corrupt/generators'
 require 'corrupt/framework/controller'
 
 module Corrupt
-  VERSION = '0.3.4'
+  VERSION = '0.3.5'
 
   # Setup the Corrupt environment.
   def self.boot!

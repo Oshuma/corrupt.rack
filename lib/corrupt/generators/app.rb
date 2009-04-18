@@ -72,6 +72,7 @@ module Corrupt
         Dir.mkdir(@path) unless File.exists?(@path)
         create_directories
         copy_files
+        # TODO: Send this to the logger maybe?
         $stdout.puts "Application created in: #{@path}"
       end
 

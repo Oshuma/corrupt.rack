@@ -44,11 +44,11 @@ module Corrupt
     end
 
     def prepare_router
-      load File.join(Corrupt.root, 'config', 'routes.rb')
+      load File.expand_path(File.dirname(Corrupt.app_root) + '/config/routes.rb')
     end
 
     def setup_database
-      database = File.join(Corrupt.root, Corrupt::Config['database'])
+      database = File.join(Corrupt.app_root, '..', Corrupt::Config['database'])
       DataMapper.setup(:default, "sqlite3:///#{database}")
     end
 
