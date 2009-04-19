@@ -26,7 +26,7 @@ require 'corrupt/generators'
 require 'corrupt/framework/controller'
 
 module Corrupt
-  VERSION = '0.3.6'
+  VERSION = '0.3.7'
 
   # Setup the Corrupt environment.  This just calls Corrupt::System.boot!
   def self.boot!
