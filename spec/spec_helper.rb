@@ -1,11 +1,15 @@
 require 'rubygems'
 require 'spec'
 
+# TODO: This is kinda convoluted and stupid.  Should just stick to one path for the specs.
 begin
-  require 'corrupt'
+  require File.dirname(__FILE__) + '/../lib/corrupt'
 rescue LoadError
-  # TODO: Might move this to /vendor or some shit.
-  require File.expand_path(File.dirname(__FILE__) + '/../lib/corrupt')
+  begin
+    require File.dirname(__FILE__) + '/../vendor/corrupt/corrupt'
+  rescue LoadError
+    require 'corrupt'
+  end
 end
 
 ENV['CORRUPT_ENV'] = 'test'

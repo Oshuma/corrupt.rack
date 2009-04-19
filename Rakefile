@@ -3,10 +3,11 @@ task :default => 'spec'
 task :environment do
   ENV['CORRUPT_ENV'] ||= 'development'
   begin
-    require 'corrupt'
+    # Try to load from ./vendor first.
+    require File.dirname(__FILE__) + '/vendor/corrupt'
   rescue LoadError
-    # TODO: This might get moved to /vendor or some shit.
-    require File.dirname(__FILE__) + '/lib/corrupt'
+    # Now try the gem.
+    require 'corrupt'
   end
   Corrupt.boot!
 end

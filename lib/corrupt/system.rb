@@ -44,7 +44,7 @@ module Corrupt
     end
 
     def prepare_router
-      load File.expand_path(File.dirname(Corrupt.app_root) + '/config/routes.rb')
+      load File.expand_path(Corrupt.app_root + '/../config/routes.rb')
     end
 
     def setup_database
