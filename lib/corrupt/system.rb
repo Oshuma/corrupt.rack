@@ -21,10 +21,12 @@ module Corrupt
 
     private
 
+    # Setup the Corrupt::Config instance.
     def load_app_config
       Corrupt::Config.setup(Corrupt.config_file)
     end
 
+    # Load any application controllers.
     def load_controllers
       app_controller = "#{Corrupt.app_root}/controllers/app_controller.rb"
       controllers = Dir["#{Corrupt.app_root}/controllers/*.rb"].sort
@@ -36,6 +38,7 @@ module Corrupt
       end
     end
 
+    # Load any application models.
     def load_models
       models = Dir["#{Corrupt.app_root}/models/*.rb"].sort
       models.each do |model|
@@ -43,10 +46,13 @@ module Corrupt
       end
     end
 
+    # Load the application <tt>/config/routes.rb</tt>.
     def prepare_router
       load File.expand_path(Corrupt.app_root + '/../config/routes.rb')
     end
 
+    # Setup the database connection.
+    # TODO: This should only be ran if the application uses a database.
     def setup_database
       database = File.join(Corrupt.app_root, '..', Corrupt::Config['database'])
       DataMapper.setup(:default, "sqlite3:///#{database}")

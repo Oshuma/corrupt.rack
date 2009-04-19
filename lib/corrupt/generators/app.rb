@@ -4,7 +4,6 @@ module Corrupt
     # Generator to create a new Corrupt application.
     class App
 
-      # A list of directories to create when making a new application.
       DIRS = [
         'app',
         'app/controllers',
@@ -28,7 +27,6 @@ module Corrupt
         'tmp',
       ]
 
-      # A list of files to copy for a new application.
       FILES = [
         'config.ru',
         'Rakefile',
@@ -68,6 +66,8 @@ module Corrupt
 
       private
 
+      # This method is responsible for running the generator methods
+      # (creating directories, copying files, etc.).
       def setup_app!
         Dir.mkdir(@path) unless File.exists?(@path)
         create_directories
@@ -76,12 +76,14 @@ module Corrupt
         $stdout.puts "Application created in: #{@path}"
       end
 
+      # Create a directory for each entry in +DIRS+.
       def create_directories
         DIRS.each do |dir|
           Dir.mkdir(File.join(@path, dir))
         end
       end
 
+      # Copy each +FILES+ entry, preserving the path.
       def copy_files
         FILES.each do |file|
           base_file = File.expand_path(File.join(Corrupt.root, file))

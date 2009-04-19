@@ -16,6 +16,7 @@ module Corrupt
       end
 
       # Return the headers for the response.
+      # TODO: Save the header hash and allow setting of custom keys.
       def headers
         { 'Content-Length' => content.size.to_s,
           'Content-Type'   => 'text/html' }
@@ -32,7 +33,7 @@ module Corrupt
         [status, headers, content]
       end
 
-      # Set the template file to be rendered.
+      # Set the template file to be rendered or return the Corrupt::Template object.
       def template(file = nil)
         @template ||= Corrupt::Template.new(file)
       end

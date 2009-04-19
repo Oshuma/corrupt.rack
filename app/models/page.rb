@@ -1,4 +1,4 @@
-# This is an application model and will get loaded into the
+# This is an example application model and will get loaded into the
 # global namespace.  Corrupt uses DataMapper by default,
 # however, a model can be any Ruby class.
 class Page

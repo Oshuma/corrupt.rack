@@ -40,29 +40,36 @@ module Corrupt
 
   private
 
+  # Points to the root of the current Corrupt application.
   def self.app_root
     # FIXME: This is most certainly wrong.  Dir.pwd should probably not be used here.
     ENV['CORRUPT_APP'] || File.join(Dir.pwd, 'app')
   end
 
+  # Returns the Corrupt::Config instance.
   def self.config
     Corrupt::Config
   end
 
+  # Path to the application configuration file.
   def self.config_file
     ENV['CORRUPT_CONFIG'] || Corrupt.app_root + '/../config/app_config.yml'
   end
 
+  # The current Corrupt environment (development, production, etc.)
+  # Defaults to 'development'.
   def self.env
     ENV['CORRUPT_ENV'] || 'development'
   end
 
+  # Returns the logger instance.
   def self.log
     @log ||= Logger.new("#{Corrupt.app_root}/../log/#{Corrupt.env}.log")
     @log.level = (Corrupt.env == 'production' ? Logger::WARN : Logger::DEBUG)
     @log
   end
 
+  # Returns the root path of the Corrupt library.
   def self.root
     ENV['CORRUPT_ROOT'] || File.expand_path(File.dirname(__FILE__) + '/..')
   end

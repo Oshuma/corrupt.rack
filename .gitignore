@@ -3,5 +3,6 @@
 config/app_config.yml
 coverage/
 db/*.sqlite3
+doc/api/
 log/*.log
 tmp/
